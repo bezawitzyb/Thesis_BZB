@@ -1,0 +1,98 @@
+\documentclass[10pt,a4paper,twoside,openright,titlepage,fleqn,%
+               headinclude,footinclude,BCOR5mm,%
+               numbers=noenddot,cleardoublepage=empty]{scrreprt}
+
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[utf8]{inputenc} 
+\usepackage[square]{natbib}
+\usepackage{subcaption} 
+\usepackage{hyperref} 
+\usepackage[ruled,vlined,algochapter,linesnumbered]{algorithm2e}
+\usepackage{chngpage}
+\usepackage{calc}
+\usepackage{ccicons} 
+\usepackage{xspace} 
+\usepackage{booktabs} 
+\usepackage[english]{babel}  
+\usepackage{listings}
+\usepackage{scrhack} % ignore warnings about deprecated KOMA-Script
+\usepackage{apalike}
+\usepackage[printonlyused,smaller,withpage]{acronym}
+
+
+\usepackage[floatperchapter,dottedtoc,eulerchapternumbers,pdfspacing,linedheaders]{classicthesis}
+\usepackage{arsclassica}
+
+\usepackage{pdfpages}
+
+\input{mysettings}
+
+
+\begin{document}
+\pagenumbering{roman}
+\pagestyle{plain}
+
+
+%******************************************************************
+% The cover page 
+% (it this needs to be manually edited and exported as a PDF)
+% (see folder README.txt in folder 'cover')
+% (I would not include it for the version you put in the repository)
+%******************************************************************
+
+\includepdf{cover/cover_front.pdf}
+
+%******************************************************************
+% Frontmatter
+%******************************************************************
+
+\input{front/titlepage}
+\clearpage
+\input{front/titleback}
+\clearpage
+\input{front/abstract}
+\input{front/acknow}
+\pagestyle{scrheadings} 
+\clearpage
+\input{front/contents}
+\clearpage
+\input{front/acronyms}
+\cleardoublepage
+
+%******************************************************************
+% Mainmatter
+%******************************************************************
+\pagenumbering{arabic}
+\input{chapters/introduction}
+\input{chapters/relatedwork}
+
+% *****************************************************************
+% Backmatter
+%******************************************************************
+\appendix
+
+%%%
+%- bibliography
+\bibliographystyle{apalike}
+\bibliography{myreferences}
+
+%%%
+%- the mandatory reflection can be put as an Appendix
+\cleardoublepage
+\include{appendices/someumldia}
+
+
+\clearpage
+\include{back/colophon}
+\cleardoublepage
+% \input{back/Index}
+
+\includepdf{cover/cover_back.pdf}
+
+\end{document}
+
+
+
+
+
